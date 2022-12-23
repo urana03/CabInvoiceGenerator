@@ -32,6 +32,7 @@ public class CabInvoice {
 		int minute = scan.nextInt();
 		distanceTime(minute);
 		calculate();
+		System.out.println("Ride "+i+" fare is:"+totalFare);
 		multipleRides = multipleRides+totalFare;
 		}
 		System.out.println("Fare for rides "+n+" is "+multipleRides);
