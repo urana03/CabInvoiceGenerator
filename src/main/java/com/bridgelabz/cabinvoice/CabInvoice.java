@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class CabInvoice {
 
-	static final int fareKms = 10;
-	static final int fareMinute = 1;
+	static int fareKms;
+	static int fareMinute;
 	static int fareOne;
 	static int fareTwo;
 	static int totalFare;
 	static int multipleRides = 0;
+	
+	
 	public static void  distance(int kilometer) {
 		 fareOne = fareKms*kilometer;
 	}
@@ -24,6 +26,16 @@ public class CabInvoice {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter User ID:");
 		int id = scan.nextInt();
+		System.out.print("For normal ride type 1 for premium type 2:");
+		int check = scan.nextInt();
+		if(check == 1) {
+			fareKms = 10;
+			fareMinute = 1;
+		}
+		else {
+			fareKms=20;
+			fareMinute=2;
+		}
 		System.out.print("Enter the rides in number: ");
 		int n = scan.nextInt();
 		for(int i=1; i<=n;i++) {
@@ -34,10 +46,10 @@ public class CabInvoice {
 		int minute = scan.nextInt();
 		distanceTime(minute);
 		calculate();
-		System.out.println("Ride of user with ID"+id+" of "+i+" and fare is: "+totalFare+"\n--------------------");
+		System.out.println("Ride of user with ID "+id+" of "+i+" and fare is: "+totalFare+"\n--------------------");
 		multipleRides = multipleRides+totalFare;
 		}
 		System.out.println("Total fare of user with ID "+id+ " have rides "+n+"and fare is "+multipleRides);
 	}
-
 }
+
