@@ -9,6 +9,7 @@ public class CabInvoice {
 	static int fareOne;
 	static int fareTwo;
 	static int totalFare;
+	static int multipleRides = 0;
 	public static void  distance(int kilometer) {
 		 fareOne = fareKms*kilometer;
 	}
@@ -21,6 +22,9 @@ public class CabInvoice {
 	}
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter the rides in number: ");
+		int n = scan.nextInt();
+		for(int i=1; i<=n;i++) {
 		System.out.print("Enter the kilometers: ");
 		int kilometers = scan.nextInt();
 		distance(kilometers);
@@ -28,12 +32,9 @@ public class CabInvoice {
 		int minute = scan.nextInt();
 		distanceTime(minute);
 		calculate();
-		if(totalFare<5) {
-			System.out.print("Fare not upto the mark!");
+		multipleRides = multipleRides+totalFare;
 		}
-		else {
-			System.out.print("Fare is: "+totalFare);
-		}
-		
+		System.out.println("Fare for rides "+n+" is "+multipleRides);
 	}
+
 }
